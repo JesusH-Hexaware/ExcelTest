@@ -28,10 +28,10 @@ public class Excel {
         //Los datos a escribir estan en este mapa
         Map<String, Object[]> registro = new TreeMap<String, Object[]>();
         registro.put("0", new Object[]{"NAME", "LASTNAME", "EMAIL", "PASSWORD", "COMPANY", "ADDRESS", "CITY", "ZIP_CODE", "MOBILE_PHONE"});
-        registro.put("1", new Object[]{"SomeName", "SomeLastName", "SomeEmail", "SomePassword.", "SomeCompany", "SomeAddress", "SomeCity", "SomePostCode", "SomeMobilePhone"});
-        registro.put("2", new Object[]{"testName", "testLastName", "testlead@test.io", "testPsw1234.", "testCompany", "testStreet", "testCity", 99999, 1234567890});
-        registro.put("3", new Object[]{"testName", "testLastName", "testlead@test.io", "testPsw1234.", "testCompany", "testStreet", "testCity", 99999, 1234567890});
-        registro.put("4", new Object[]{"testName", "testLastName", "testlead@test.io", "testPsw1234.", "testCompany", "testStreet", "testCity", 99999, 1234567890});
+        registro.put("1", new Object[]{"Gabriel", "Reilly", "erat.eget.tincidunt@protonmail.edu", "BQG27CTE9DU.", "Romaguera", "P.O. Box 855, 8605 Magna. Rd.", "Bonlez", 346624, "SomeMobilePhone"});
+        registro.put("2", new Object[]{"Jake", "Jacobs", "mus@yahoo.ca", "IKM14NXL3DK.", "Morar, Cole and McCullough", "Morar, Cole and McCullough','192-3565 In Ave", "Cork", 214821, 1234567890});
+        registro.put("3", new Object[]{"Spencer", "Shanahan", "accumsan@icloud.com", "ICW28OOY7AD.", "Kling - Kihn", "223-2228 Nulla Road", "Göksun", 98765, 1234567890});
+        registro.put("4", new Object[]{"Marion", "Botsford", "pede.cum@outlook.net", "OAH76NPM3LW.", "Steuber - Bernier", "1902 Cum Road", "Sefro", 655933, 1234567890});
 
         //Aqui se recorre el mapa para escribir los datos en la hoja
         Set<String> valor = registro.keySet();
@@ -52,7 +52,7 @@ public class Excel {
         }
         try {
             //Write the workbook in file system
-            FileOutputStream out = new FileOutputStream(new File("Directory.xlsx"));
+            FileOutputStream out = new FileOutputStream(new File("src/testData/Directory.xlsx"));
             workbook.write(out);
             out.close();
             System.out.println("Directory.xlsx written successfully on disk. \n");
@@ -63,7 +63,7 @@ public class Excel {
 
     public static void leerExcel() {
         try {
-            FileInputStream file = new FileInputStream(new File("Directory.xlsx"));
+            FileInputStream file = new FileInputStream(new File("src/testData/Directory.xlsx"));
             XSSFWorkbook workbook = new XSSFWorkbook(file);
             XSSFSheet sheet = workbook.getSheetAt(0);
 
